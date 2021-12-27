@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart_res = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tb_pkt_start = new System.Windows.Forms.TextBox();
             this.lb_pkt_start = new System.Windows.Forms.Label();
@@ -41,7 +41,7 @@
             this.lb_precision = new System.Windows.Forms.Label();
             this.b_close = new System.Windows.Forms.Button();
             this.lb_max_iter = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.ud_iters = new System.Windows.Forms.NumericUpDown();
             this.tb_res_zero = new System.Windows.Forms.TextBox();
             this.tb_res_stop = new System.Windows.Forms.TextBox();
             this.tb_res_num_iter = new System.Windows.Forms.TextBox();
@@ -51,21 +51,21 @@
             this.lb_res_num_iter = new System.Windows.Forms.Label();
             this.lb_res_zero_function_val = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chart_res)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ud_iters)).BeginInit();
             this.SuspendLayout();
             // 
             // chart_res
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart_res.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart_res.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chart_res.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart_res.Legends.Add(legend1);
             this.chart_res.Location = new System.Drawing.Point(0, 0);
             this.chart_res.Name = "chart_res";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart_res.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart_res.Series.Add(series1);
             this.chart_res.Size = new System.Drawing.Size(433, 336);
             this.chart_res.TabIndex = 0;
             this.chart_res.Text = "chart1";
@@ -99,7 +99,7 @@
             // 
             this.tb_function.Location = new System.Drawing.Point(93, 362);
             this.tb_function.Name = "tb_function";
-            this.tb_function.Size = new System.Drawing.Size(100, 20);
+            this.tb_function.Size = new System.Drawing.Size(169, 20);
             this.tb_function.TabIndex = 5;
             // 
             // b_ok
@@ -147,12 +147,12 @@
             this.lb_max_iter.TabIndex = 10;
             this.lb_max_iter.Text = "Maksymalna liczba iteracji";
             // 
-            // numericUpDown1
+            // ud_iters
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(165, 506);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(70, 20);
-            this.numericUpDown1.TabIndex = 11;
+            this.ud_iters.Location = new System.Drawing.Point(165, 506);
+            this.ud_iters.Name = "ud_iters";
+            this.ud_iters.Size = new System.Drawing.Size(70, 20);
+            this.ud_iters.TabIndex = 11;
             // 
             // tb_res_zero
             // 
@@ -222,7 +222,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(967, 610);
+            this.ClientSize = new System.Drawing.Size(870, 610);
             this.Controls.Add(this.lb_res_zero_function_val);
             this.Controls.Add(this.lb_res_num_iter);
             this.Controls.Add(this.lb_res_stop);
@@ -231,7 +231,7 @@
             this.Controls.Add(this.tb_res_num_iter);
             this.Controls.Add(this.tb_res_stop);
             this.Controls.Add(this.tb_res_zero);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.ud_iters);
             this.Controls.Add(this.lb_max_iter);
             this.Controls.Add(this.b_close);
             this.Controls.Add(this.lb_precision);
@@ -245,7 +245,7 @@
             this.Name = "FormNewtonMethod";
             this.Text = "Wyznaczanie miejsca zerowego metodą Newtona";
             ((System.ComponentModel.ISupportInitialize)(this.chart_res)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ud_iters)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,7 +263,7 @@
         private System.Windows.Forms.Label lb_precision;
         private System.Windows.Forms.Button b_close;
         private System.Windows.Forms.Label lb_max_iter;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown ud_iters;
         private System.Windows.Forms.TextBox tb_res_zero;
         private System.Windows.Forms.TextBox tb_res_stop;
         private System.Windows.Forms.TextBox tb_res_num_iter;
