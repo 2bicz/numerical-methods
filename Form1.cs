@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace numerical_methods_Newton
 {
-    public partial class Form1 : Form
+    public partial class FormNewtonMethod : Form
     {
-        public Form1()
+        public FormNewtonMethod()
         {
             InitializeComponent();
+        }
+
+        private void b_ok_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void b_close_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
