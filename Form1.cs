@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using org.mariuszgromada.math.mxparser;
 
 namespace numerical_methods_Newton
 {
@@ -21,7 +22,18 @@ namespace numerical_methods_Newton
 
         private double f(double x)
         {
-
+            try
+            {
+                String str = tb_function.Text;
+                Expression e1 = new Expression(str);
+                double result = e1.calculate();
+                return result;
+            }
+            catch (ArgumentNullException e)
+            {
+                MessageBox.Show("Brak podanej funkcji!");
+            }
+            return 1;
         }
 
         private double fp(double x)

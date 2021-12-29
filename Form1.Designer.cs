@@ -37,8 +37,8 @@
             this.lb_function = new System.Windows.Forms.Label();
             this.tb_function = new System.Windows.Forms.TextBox();
             this.b_ok = new System.Windows.Forms.Button();
-            this.tb_precision = new System.Windows.Forms.TextBox();
-            this.lb_precision = new System.Windows.Forms.Label();
+            this.tb_precision_zero = new System.Windows.Forms.TextBox();
+            this.lb_precision_zero = new System.Windows.Forms.Label();
             this.b_close = new System.Windows.Forms.Button();
             this.lb_max_iter = new System.Windows.Forms.Label();
             this.ud_iters = new System.Windows.Forms.NumericUpDown();
@@ -50,6 +50,8 @@
             this.lb_res_stop = new System.Windows.Forms.Label();
             this.lb_res_num_iter = new System.Windows.Forms.Label();
             this.lb_res_zero_function_val = new System.Windows.Forms.Label();
+            this.tb_precision_sqrt = new System.Windows.Forms.TextBox();
+            this.lb_precision_sqrt = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chart_res)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ud_iters)).BeginInit();
             this.SuspendLayout();
@@ -72,7 +74,7 @@
             // 
             // tb_pkt_start
             // 
-            this.tb_pkt_start.Location = new System.Drawing.Point(119, 419);
+            this.tb_pkt_start.Location = new System.Drawing.Point(389, 481);
             this.tb_pkt_start.Name = "tb_pkt_start";
             this.tb_pkt_start.Size = new System.Drawing.Size(44, 20);
             this.tb_pkt_start.TabIndex = 1;
@@ -80,7 +82,7 @@
             // lb_pkt_start
             // 
             this.lb_pkt_start.AutoSize = true;
-            this.lb_pkt_start.Location = new System.Drawing.Point(24, 422);
+            this.lb_pkt_start.Location = new System.Drawing.Point(294, 484);
             this.lb_pkt_start.Name = "lb_pkt_start";
             this.lb_pkt_start.Size = new System.Drawing.Size(77, 13);
             this.lb_pkt_start.TabIndex = 2;
@@ -112,25 +114,25 @@
             this.b_ok.UseVisualStyleBackColor = true;
             this.b_ok.Click += new System.EventHandler(this.b_ok_Click);
             // 
-            // tb_precision
+            // tb_precision_zero
             // 
-            this.tb_precision.Location = new System.Drawing.Point(93, 465);
-            this.tb_precision.Name = "tb_precision";
-            this.tb_precision.Size = new System.Drawing.Size(100, 20);
-            this.tb_precision.TabIndex = 7;
+            this.tb_precision_zero.Location = new System.Drawing.Point(205, 401);
+            this.tb_precision_zero.Name = "tb_precision_zero";
+            this.tb_precision_zero.Size = new System.Drawing.Size(100, 20);
+            this.tb_precision_zero.TabIndex = 7;
             // 
-            // lb_precision
+            // lb_precision_zero
             // 
-            this.lb_precision.AutoSize = true;
-            this.lb_precision.Location = new System.Drawing.Point(21, 468);
-            this.lb_precision.Name = "lb_precision";
-            this.lb_precision.Size = new System.Drawing.Size(66, 13);
-            this.lb_precision.TabIndex = 8;
-            this.lb_precision.Text = "Dokładność";
+            this.lb_precision_zero.AutoSize = true;
+            this.lb_precision_zero.Location = new System.Drawing.Point(36, 404);
+            this.lb_precision_zero.Name = "lb_precision_zero";
+            this.lb_precision_zero.Size = new System.Drawing.Size(163, 13);
+            this.lb_precision_zero.TabIndex = 8;
+            this.lb_precision_zero.Text = "Dokładność porównania z zerem";
             // 
             // b_close
             // 
-            this.b_close.Location = new System.Drawing.Point(289, 412);
+            this.b_close.Location = new System.Drawing.Point(389, 362);
             this.b_close.Name = "b_close";
             this.b_close.Size = new System.Drawing.Size(75, 23);
             this.b_close.TabIndex = 9;
@@ -218,11 +220,29 @@
             this.lb_res_zero_function_val.TabIndex = 19;
             this.lb_res_zero_function_val.Text = "Wartość funkcji od wyznaczonego miejsca zerowego";
             // 
+            // tb_precision_sqrt
+            // 
+            this.tb_precision_sqrt.Location = new System.Drawing.Point(228, 424);
+            this.tb_precision_sqrt.Name = "tb_precision_sqrt";
+            this.tb_precision_sqrt.Size = new System.Drawing.Size(100, 20);
+            this.tb_precision_sqrt.TabIndex = 20;
+            // 
+            // lb_precision_sqrt
+            // 
+            this.lb_precision_sqrt.AutoSize = true;
+            this.lb_precision_sqrt.Location = new System.Drawing.Point(36, 427);
+            this.lb_precision_sqrt.Name = "lb_precision_sqrt";
+            this.lb_precision_sqrt.Size = new System.Drawing.Size(186, 13);
+            this.lb_precision_sqrt.TabIndex = 21;
+            this.lb_precision_sqrt.Text = "Dokładność wyznaczania pierwiastka";
+            // 
             // FormNewtonMethod
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(870, 610);
+            this.Controls.Add(this.lb_precision_sqrt);
+            this.Controls.Add(this.tb_precision_sqrt);
             this.Controls.Add(this.lb_res_zero_function_val);
             this.Controls.Add(this.lb_res_num_iter);
             this.Controls.Add(this.lb_res_stop);
@@ -234,8 +254,8 @@
             this.Controls.Add(this.ud_iters);
             this.Controls.Add(this.lb_max_iter);
             this.Controls.Add(this.b_close);
-            this.Controls.Add(this.lb_precision);
-            this.Controls.Add(this.tb_precision);
+            this.Controls.Add(this.lb_precision_zero);
+            this.Controls.Add(this.tb_precision_zero);
             this.Controls.Add(this.b_ok);
             this.Controls.Add(this.tb_function);
             this.Controls.Add(this.lb_function);
@@ -259,8 +279,8 @@
         private System.Windows.Forms.Label lb_function;
         private System.Windows.Forms.TextBox tb_function;
         private System.Windows.Forms.Button b_ok;
-        private System.Windows.Forms.TextBox tb_precision;
-        private System.Windows.Forms.Label lb_precision;
+        private System.Windows.Forms.TextBox tb_precision_zero;
+        private System.Windows.Forms.Label lb_precision_zero;
         private System.Windows.Forms.Button b_close;
         private System.Windows.Forms.Label lb_max_iter;
         private System.Windows.Forms.NumericUpDown ud_iters;
@@ -272,6 +292,8 @@
         private System.Windows.Forms.Label lb_res_stop;
         private System.Windows.Forms.Label lb_res_num_iter;
         private System.Windows.Forms.Label lb_res_zero_function_val;
+        private System.Windows.Forms.TextBox tb_precision_sqrt;
+        private System.Windows.Forms.Label lb_precision_sqrt;
     }
 }
 
