@@ -182,7 +182,7 @@
             // 
             // tb_res_zero_function_val
             // 
-            this.tb_res_zero_function_val.Location = new System.Drawing.Point(722, 209);
+            this.tb_res_zero_function_val.Location = new System.Drawing.Point(702, 209);
             this.tb_res_zero_function_val.Name = "tb_res_zero_function_val";
             this.tb_res_zero_function_val.Size = new System.Drawing.Size(100, 20);
             this.tb_res_zero_function_val.TabIndex = 15;
