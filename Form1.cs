@@ -13,32 +13,51 @@ namespace numerical_methods_Newton
 {
     public partial class FormNewtonMethod : Form
     {
-        private double eps0, epsx;
+        
 
-        private double setPrecision()
+        /*private double setPrecision()
         {
             
-        }
+        }*/
 
         private double f(double x)
         {
             try
             {
-                String str = tb_function.Text;
+                String str = tb_function.Text.Replace("x", ""+x);
+                str = str.Replace(",", ".");
+                //MessageBox.Show(str);
                 Expression e1 = new Expression(str);
+                //MessageBox.Show("Parser: " + e1.getExpressionString());
                 double result = e1.calculate();
+                //MessageBox.Show("Result: "+ result);
+
+                //String str2 = "-0.333333333333333 * -0.333333333333333 + 3 * -0.333333333333333 + 1";
+                //Expression e2 = new Expression(str2);
+                //double result2 = e2.calculate();
+                //MessageBox.Show("Result 2: " + result2);
+
                 return result;
+                //return Math.Round(result, (int)ud_places_comma.Value);
             }
             catch (ArgumentNullException e)
             {
                 MessageBox.Show("Brak podanej funkcji!");
             }
             return 1;
+            //return Math.Pow(x, 2) + 3 * x + 1;
         }
 
         private double fp(double x)
         {
+            //Expression eder = new Expression("der(x^2 + 3*x + 1), x, 0");
+            //MessageBox.Show("Pochodna x^2 + 3*x + 1, gdzie x to 0: " + eder.calculate());
+            return 2 * x + 3;
+            /*try
+            {
+                //String functionStr = tb_function.Text;
 
+            }*/
         }
 
         public FormNewtonMethod()
@@ -49,6 +68,8 @@ namespace numerical_methods_Newton
         private void b_ok_Click(object sender, EventArgs e)
         {
             double x0, x1, f0, f1;
+            double eps0 = Convert.ToDouble(tb_precision_zero.Text);
+            double epsx = Convert.ToDouble(tb_precision_sqrt.Text);
             int i;
 
             x0 = Convert.ToDouble(tb_pkt_start.Text);
@@ -68,7 +89,7 @@ namespace numerical_methods_Newton
                     break;
                 }
                 x1 = x0;
-                x0 = x0 - f0 / f1;
+                x0 = x0 - f0 / f1; // powinno wyjsc -1/3
                 f0 = f(x0);
                 if ((--i) == 0)
                     MessageBox.Show("Przekroczony limit obiegów!");

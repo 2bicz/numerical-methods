@@ -52,8 +52,11 @@
             this.lb_res_zero_function_val = new System.Windows.Forms.Label();
             this.tb_precision_sqrt = new System.Windows.Forms.TextBox();
             this.lb_precision_sqrt = new System.Windows.Forms.Label();
+            this.ud_places_comma = new System.Windows.Forms.NumericUpDown();
+            this.lb_places_comma = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chart_res)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ud_iters)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ud_places_comma)).BeginInit();
             this.SuspendLayout();
             // 
             // chart_res
@@ -74,7 +77,7 @@
             // 
             // tb_pkt_start
             // 
-            this.tb_pkt_start.Location = new System.Drawing.Point(389, 481);
+            this.tb_pkt_start.Location = new System.Drawing.Point(115, 457);
             this.tb_pkt_start.Name = "tb_pkt_start";
             this.tb_pkt_start.Size = new System.Drawing.Size(44, 20);
             this.tb_pkt_start.TabIndex = 1;
@@ -82,7 +85,7 @@
             // lb_pkt_start
             // 
             this.lb_pkt_start.AutoSize = true;
-            this.lb_pkt_start.Location = new System.Drawing.Point(294, 484);
+            this.lb_pkt_start.Location = new System.Drawing.Point(30, 460);
             this.lb_pkt_start.Name = "lb_pkt_start";
             this.lb_pkt_start.Size = new System.Drawing.Size(77, 13);
             this.lb_pkt_start.TabIndex = 2;
@@ -116,7 +119,7 @@
             // 
             // tb_precision_zero
             // 
-            this.tb_precision_zero.Location = new System.Drawing.Point(205, 401);
+            this.tb_precision_zero.Location = new System.Drawing.Point(330, 398);
             this.tb_precision_zero.Name = "tb_precision_zero";
             this.tb_precision_zero.Size = new System.Drawing.Size(100, 20);
             this.tb_precision_zero.TabIndex = 7;
@@ -124,7 +127,7 @@
             // lb_precision_zero
             // 
             this.lb_precision_zero.AutoSize = true;
-            this.lb_precision_zero.Location = new System.Drawing.Point(36, 404);
+            this.lb_precision_zero.Location = new System.Drawing.Point(30, 401);
             this.lb_precision_zero.Name = "lb_precision_zero";
             this.lb_precision_zero.Size = new System.Drawing.Size(163, 13);
             this.lb_precision_zero.TabIndex = 8;
@@ -143,7 +146,7 @@
             // lb_max_iter
             // 
             this.lb_max_iter.AutoSize = true;
-            this.lb_max_iter.Location = new System.Drawing.Point(30, 508);
+            this.lb_max_iter.Location = new System.Drawing.Point(30, 488);
             this.lb_max_iter.Name = "lb_max_iter";
             this.lb_max_iter.Size = new System.Drawing.Size(129, 13);
             this.lb_max_iter.TabIndex = 10;
@@ -151,7 +154,7 @@
             // 
             // ud_iters
             // 
-            this.ud_iters.Location = new System.Drawing.Point(165, 506);
+            this.ud_iters.Location = new System.Drawing.Point(165, 481);
             this.ud_iters.Name = "ud_iters";
             this.ud_iters.Size = new System.Drawing.Size(70, 20);
             this.ud_iters.TabIndex = 11;
@@ -222,7 +225,7 @@
             // 
             // tb_precision_sqrt
             // 
-            this.tb_precision_sqrt.Location = new System.Drawing.Point(228, 424);
+            this.tb_precision_sqrt.Location = new System.Drawing.Point(330, 424);
             this.tb_precision_sqrt.Name = "tb_precision_sqrt";
             this.tb_precision_sqrt.Size = new System.Drawing.Size(100, 20);
             this.tb_precision_sqrt.TabIndex = 20;
@@ -230,17 +233,40 @@
             // lb_precision_sqrt
             // 
             this.lb_precision_sqrt.AutoSize = true;
-            this.lb_precision_sqrt.Location = new System.Drawing.Point(36, 427);
+            this.lb_precision_sqrt.Location = new System.Drawing.Point(30, 427);
             this.lb_precision_sqrt.Name = "lb_precision_sqrt";
             this.lb_precision_sqrt.Size = new System.Drawing.Size(186, 13);
             this.lb_precision_sqrt.TabIndex = 21;
             this.lb_precision_sqrt.Text = "Dokładność wyznaczania pierwiastka";
+            // 
+            // ud_places_comma
+            // 
+            this.ud_places_comma.Location = new System.Drawing.Point(170, 520);
+            this.ud_places_comma.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.ud_places_comma.Name = "ud_places_comma";
+            this.ud_places_comma.Size = new System.Drawing.Size(70, 20);
+            this.ud_places_comma.TabIndex = 22;
+            // 
+            // lb_places_comma
+            // 
+            this.lb_places_comma.AutoSize = true;
+            this.lb_places_comma.Location = new System.Drawing.Point(30, 522);
+            this.lb_places_comma.Name = "lb_places_comma";
+            this.lb_places_comma.Size = new System.Drawing.Size(134, 13);
+            this.lb_places_comma.TabIndex = 23;
+            this.lb_places_comma.Text = "Liczba miejsc po przecinku";
             // 
             // FormNewtonMethod
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(870, 610);
+            this.Controls.Add(this.lb_places_comma);
+            this.Controls.Add(this.ud_places_comma);
             this.Controls.Add(this.lb_precision_sqrt);
             this.Controls.Add(this.tb_precision_sqrt);
             this.Controls.Add(this.lb_res_zero_function_val);
@@ -266,6 +292,7 @@
             this.Text = "Wyznaczanie miejsca zerowego metodą Newtona";
             ((System.ComponentModel.ISupportInitialize)(this.chart_res)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ud_iters)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ud_places_comma)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -294,6 +321,8 @@
         private System.Windows.Forms.Label lb_res_zero_function_val;
         private System.Windows.Forms.TextBox tb_precision_sqrt;
         private System.Windows.Forms.Label lb_precision_sqrt;
+        private System.Windows.Forms.NumericUpDown ud_places_comma;
+        private System.Windows.Forms.Label lb_places_comma;
     }
 }
 

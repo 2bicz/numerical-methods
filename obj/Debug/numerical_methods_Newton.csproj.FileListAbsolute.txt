@@ -1,0 +1,12 @@
+C:\Users\dom\source\repos\numerical_methods_Newton\bin\Debug\numerical_methods_Newton.exe.config
+C:\Users\dom\source\repos\numerical_methods_Newton\bin\Debug\numerical_methods_Newton.exe
+C:\Users\dom\source\repos\numerical_methods_Newton\bin\Debug\numerical_methods_Newton.pdb
+C:\Users\dom\source\repos\numerical_methods_Newton\bin\Debug\MathParser.org-mXparser.dll
+C:\Users\dom\source\repos\numerical_methods_Newton\obj\Debug\numerical_methods_Newton.csprojAssemblyReference.cache
+C:\Users\dom\source\repos\numerical_methods_Newton\obj\Debug\numerical_methods_Newton.FormNewtonMethod.resources
+C:\Users\dom\source\repos\numerical_methods_Newton\obj\Debug\numerical_methods_Newton.Properties.Resources.resources
+C:\Users\dom\source\repos\numerical_methods_Newton\obj\Debug\numerical_methods_Newton.csproj.GenerateResource.cache
+C:\Users\dom\source\repos\numerical_methods_Newton\obj\Debug\numerical_methods_Newton.csproj.CoreCompileInputs.cache
+C:\Users\dom\source\repos\numerical_methods_Newton\obj\Debug\numerical_methods_Newton.csproj.CopyComplete
+C:\Users\dom\source\repos\numerical_methods_Newton\obj\Debug\numerical_methods_Newton.exe
+C:\Users\dom\source\repos\numerical_methods_Newton\obj\Debug\numerical_methods_Newton.pdb
