@@ -9,18 +9,24 @@ namespace numerical_methods_Newton
 {
     class EasyParser
     {
+        // String przechowujący naszą funkcję
         private String f;
 
+        // Konstruktor, w którym zapisujemy naszą funkcję
+        // i wymieniamy w niej przecinki na kropki,
+        // by nie kolidowało to z mxparserem
         public EasyParser(String fConstruct)
         {        
             this.f = fConstruct.Replace(",", ".");    
         }
 
+        // Zwracamy string z funkcją
         public String getFunctionString()
         {
             return this.f;
         }
 
+        // Obliczamy ile wynosi wartość naszej funkcji po podaniu x
         public double getFunctionValue(double x)
         {
             try
@@ -37,11 +43,7 @@ namespace numerical_methods_Newton
             return 1;
         }
 
-        //public String getFunctionDerivativeString()
-        //{
-
-        //}
-
+        // Obliczamy pochodną naszej funkcji
         public double getFunctionDerivativeValue(double x)
         {
             try
