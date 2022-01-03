@@ -5,6 +5,11 @@ namespace numerical_methods_Newton
 {
     public partial class FormNewtonMethod : Form
     {
+        public FormNewtonMethod()
+        {
+            InitializeComponent();
+        }
+
         private String safeFunction(String function)
         {
             // regex funkcji (będzie trzeba pokminić na co mxparser pozwala)
@@ -14,7 +19,7 @@ namespace numerical_methods_Newton
 
         private String safePktStart(String pktStart)
         {
-            // regex punktu startowego (tylko liczby, bez innych znaków, zamieniać kropki na przecinki)
+            // regex punktu startowego (tylko liczby, bez innych znaków, maja byc przecinki)
             // tb_pkt_start.Text
             // zwraca string punktu startowego
         }
@@ -46,11 +51,6 @@ namespace numerical_methods_Newton
         private void b_close_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        public FormNewtonMethod()
-        {
-            InitializeComponent();
-        }
+        }     
     }
 }
