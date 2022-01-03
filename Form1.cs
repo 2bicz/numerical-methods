@@ -13,31 +13,6 @@ namespace numerical_methods_Newton
 {
     public partial class FormNewtonMethod : Form
     {
-        private double f(double x)
-        {
-            try
-            {
-                String str = tb_function.Text.Replace("x", ""+x);
-                str = str.Replace(",", ".");
-                Expression e1 = new Expression(str);
-                double result = e1.calculate();
-                return result;
-            }
-            catch (ArgumentNullException e)
-            {
-                MessageBox.Show("Brak podanej funkcji!");
-            }
-            return 1;
-        }
-
-        private double fp(double x)
-        {
-            Argument xArg = new Argument("x = " + x.ToString().Replace(",","."));
-            Expression eder = new Expression("der(" + tb_function.Text + ",x)", xArg);
-            double result = eder.calculate();
-            MessageBox.Show("Pochodna " + eder.getExpressionString() + ", gdzie x to " + x + ": " + result);
-            return result;
-        }
 
         public FormNewtonMethod()
         {
@@ -46,21 +21,22 @@ namespace numerical_methods_Newton
 
         private void b_ok_Click(object sender, EventArgs e)
         {
-            double x0, x1, f0, f1;
+
+            double x0 = Convert.ToDouble(tb_pkt_start.Text), x1, f0, f1;
             double eps0 = Convert.ToDouble(tb_precision_zero.Text);
             double epsx = Convert.ToDouble(tb_precision_sqrt.Text);
             int i;
+            EasyParser parser = new EasyParser(tb_function.Text);
 
-            x0 = Convert.ToDouble(tb_pkt_start.Text);
             x1 = x0 - 1;
-            f0 = f(x0);
+            f0 = parser.getFunctionValue(x0);
             i = (int)ud_iters.Value;
             int copyi = i;
-            
-            f1 = fp(x0);
+
+            f1 = parser.getFunctionDerivativeValue(x0);
             while (i != 0 && (Math.Abs(f1) > epsx) && (Math.Abs(f0) > eps0))
             {
-                f1 = fp(x0);
+                f1 = parser.getFunctionDerivativeValue(x0);
                 if(Math.Abs(f1) < eps0)
                 {
                     MessageBox.Show("Zły punkt startowy!");
@@ -69,7 +45,8 @@ namespace numerical_methods_Newton
                 }
                 x1 = x0;
                 x0 = x0 - f0 / f1;
-                f0 = f(x0);
+                f0 = parser.getFunctionValue(x0);
+
                 if ((--i) == 0)
                     MessageBox.Show("Przekroczony limit obiegów!");
             }
