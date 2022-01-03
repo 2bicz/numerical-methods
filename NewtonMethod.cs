@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace numerical_methods_Newton 
@@ -13,16 +9,16 @@ namespace numerical_methods_Newton
         private double x0, x1;
         private double f0, f1;
         private double eps0, epsx;
-        private int i;
+        private int i, comma;
 
         public struct Result
         {
             public double x0, x1, f0;
             public int i;
-            public String error;
         }
+        public Result res;
 
-        public NewtonMethod(String functionString, double x00, double x11, double f00, double f11, double eps00, double epsxx, int ii)
+        public NewtonMethod(String functionString, double x00, double x11, double f00, double f11, double eps00, double epsxx, int ii, int commaPlaces)
         {
             this.parser = new EasyParser(functionString);
             this.x0 = x00;
@@ -32,13 +28,14 @@ namespace numerical_methods_Newton
             this.eps0 = eps00;
             this.epsx = epsxx;
             this.i = ii;
+            this.comma = commaPlaces;
         }
 
-        public Result calculate()
+        public void calculate()
         {
-            Result res = new Result();
             try
             {
+                int copyi = this.i;
                 while (i != 0 && (Math.Abs(f1) > epsx) && (Math.Abs(f0) > eps0))
                 {
                     f1 = parser.getFunctionDerivativeValue(x0);
@@ -57,17 +54,10 @@ namespace numerical_methods_Newton
                 }
                 if (i != 0)
                 {
-                    //tb_res_zero.Text = "" + Math.Round(x0, (int)ud_places_comma.Value); //double
-                    //tb_res_stop.Text = "" + Math.Round(x1, (int)ud_places_comma.Value); //double
-                    //int res_iter = copyi - i; //int
-                    //tb_res_num_iter.Text = "" + res_iter;
-                    //tb_res_zero_function_val.Text = "" + Math.Round(f0, (int)ud_places_comma.Value); //double
-                    res.x0 = this.x0;
-                    res.x1 = this.x1;
-                    res.i = this.i;
-                    res.f0 = this.f0;
-
-                    return res;
+                    res.x0 = Math.Round(this.x0, this.comma);
+                    res.x1 = Math.Round(this.x1, this.comma);
+                    res.i = copyi - this.i;
+                    res.f0 = Math.Round(this.f0, this.comma);
                 }
             }
             catch(Exception err)
@@ -75,7 +65,6 @@ namespace numerical_methods_Newton
                 Console.WriteLine("Error message: " + err.Message);
                 Console.WriteLine("Error source: " + err.Source);
             }
-            return res;
         }
     }
 }
