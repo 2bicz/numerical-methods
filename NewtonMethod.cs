@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace numerical_methods_Newton 
 {
@@ -11,9 +12,12 @@ namespace numerical_methods_Newton
         private double eps0, epsx;
         private int i, comma;
 
+        public List<double> zeroApproxList = new List<double>();
+
         public struct Result
         {
             public double x0, x1, f0;
+            
             public int i;
         }
         public Result res;
@@ -47,10 +51,15 @@ namespace numerical_methods_Newton
                     }
                     x1 = x0;
                     x0 = x0 - f0 / f1;
+                    this.zeroApproxList.Add(Math.Round(x0, comma));
                     f0 = parser.getFunctionValue(x0);
 
                     if ((--i) == 0)
+                    {
                         MessageBox.Show("Przekroczony limit obiegów!");
+                        break;
+                    }
+                        
                 }
                 if (i != 0)
                 {
