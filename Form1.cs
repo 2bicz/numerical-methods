@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Drawing;
+using System.Text.RegularExpressions;
 
 namespace numerical_methods_Newton
 {
@@ -22,11 +23,23 @@ namespace numerical_methods_Newton
 
         }
 
-       /* private String safeFunction(String function)
+
+        /*private String safeFunction(String function)
         {
             // regex funkcji (będzie trzeba pokminić na co mxparser pozwala)
             // tb_function.Text
             // zwraca string funkcji
+            Regex funkcja = new Regex("@^([+-]?([^-+][0-9]*([x-z](/^[0-9])*)*)+)$");
+            if (!funkcja.IsMatch(function))
+            {
+
+                MessageBox.Show("nieprawidłowa funckja");
+                tb_function.Clear();
+                tb_function.Focus();
+
+                return "";
+            }
+            return function;
         }
 
         private String safePktStart(String pktStart)
@@ -34,6 +47,21 @@ namespace numerical_methods_Newton
             // regex punktu startowego (tylko liczby, bez innych znaków, maja byc przecinki)
             // tb_pkt_start.Text
             // zwraca string punktu startowego
+            pktStart = pktStart.Replace(".", ",");
+
+            Regex start = new Regex("@^\-?[0-9]{1,}$");
+
+            if (!start.IsMatch(pktStart))
+            {
+
+                MessageBox.Show("zly punkt startowy elo");
+                tb_pkt_start.Clear();
+                tb_pkt_start.Focus();
+
+                return "";
+            }
+
+            return pktStart;
         }
 
         private String safePrecision(String precision)
@@ -41,6 +69,19 @@ namespace numerical_methods_Newton
             // regex dokładności porównania z zerem i przybliżenia pierwiastka (żadnych liter, same liczby, zero i jakieś wartości po !przecinku!)
             // tb_precision_zero.Text
             // zwraca string przybliżenia (np 0,0000000001)
+            precision = precision.Replace(".", ",");
+            Regex precision0 = new Regex("@^[0]{1},[0-9]{1,}$");
+            if (!precision0.IsMatch(precision))
+            {
+
+                MessageBox.Show("zle przyblizenie");
+                tb_precision_sqrt.Clear();
+                tb_precision_sqrt.Focus();
+
+                return "";
+            }
+            return precision;
+
         }*/
 
         private void b_ok_Click(object sender, EventArgs e)
@@ -186,6 +227,54 @@ namespace numerical_methods_Newton
 
                 series.Points.AddXY(i.ToString(), parser.getFunctionValue(i));
                 //MessageBox.Show("wartosc funkcji: " + this.parser.getFunctionValue(i));
+            }
+        }
+
+        private void tb_function_Leave(object sender, EventArgs e)
+        {
+            //Regex funkcja = new Regex("@^([+-]?([^-+][0-9]*([x-z](/^[0-9])*)*)+)$");
+            if (!Regex.Match(tb_function.Text, "^([-+]?([0-9]*/.?[0-9]+)?((/*)?x(/^[+-]?([0-9]*/.?[0-9]+)?)?)?)+$").Success)
+            {
+                MessageBox.Show("nieprawidłowa funckja");
+                tb_function.Clear();
+            }
+        }
+
+        private void tb_precision_zero_Leave(object sender, EventArgs e)
+        {
+            String precision = tb_precision_zero.Text;
+            //Regex precision0 = new Regex("@^[0]{1},[0-9]{1,}$");
+            if (!Regex.Match(precision, "^[0]{1},([0-9]+)?[1-9]$").Success)
+            {
+                MessageBox.Show("zle przyblizenie");
+                tb_precision_zero.Clear();
+            }
+        }
+
+        private void tb_precision_sqrt_Leave(object sender, EventArgs e)
+        {
+            //@"^[0](?:\.[0-9]*)?$"
+            String precision = tb_precision_sqrt.Text;
+           // Regex precisionSqrt = new Regex("@^[0]{1},[0-9]1*$");
+            //if (!precisionSqrt.IsMatch(precision))
+            //@"^[0]{1},[0-9]{1*}$"
+            if (!Regex.Match(precision, "^[0]{1},([0-9]+)?[1-9]$").Success)
+            {
+                MessageBox.Show("zle przyblizenie");
+                tb_precision_sqrt.Clear();
+            }
+        }
+
+        private void tb_pkt_start_Leave(object sender, EventArgs e)
+        {
+            String pktStart = tb_pkt_start.Text;
+            //"^[-]?[0-9]{1,}$"
+            // Regex start = new Regex("@^/-?[0-9]{1,}$");
+
+            if (!Regex.Match(pktStart, "^[-]?(?!00)(?!01)(?!02)(?!03)(?!04)(?!05)(?!06)(?!07)(?!08)(?!09)(?!-0)[0-9]{1}([0-9]{1,})?$").Success)
+            {
+                MessageBox.Show("zly punkt startowy elo");
+                tb_pkt_start.Clear();
             }
         }
     }

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart_res = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tb_pkt_start = new System.Windows.Forms.TextBox();
             this.lb_pkt_start = new System.Windows.Forms.Label();
@@ -55,6 +55,7 @@
             this.ud_places_comma = new System.Windows.Forms.NumericUpDown();
             this.lb_places_comma = new System.Windows.Forms.Label();
             this.b_ok_2 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.chart_res)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ud_iters)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ud_places_comma)).BeginInit();
@@ -62,16 +63,16 @@
             // 
             // chart_res
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart_res.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart_res.Legends.Add(legend1);
+            chartArea5.Name = "ChartArea1";
+            this.chart_res.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.chart_res.Legends.Add(legend5);
             this.chart_res.Location = new System.Drawing.Point(0, 0);
             this.chart_res.Name = "chart_res";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart_res.Series.Add(series1);
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.chart_res.Series.Add(series5);
             this.chart_res.Size = new System.Drawing.Size(900, 572);
             this.chart_res.TabIndex = 0;
             this.chart_res.Text = "chart1";
@@ -82,6 +83,7 @@
             this.tb_pkt_start.Name = "tb_pkt_start";
             this.tb_pkt_start.Size = new System.Drawing.Size(44, 20);
             this.tb_pkt_start.TabIndex = 1;
+            this.tb_pkt_start.Leave += new System.EventHandler(this.tb_pkt_start_Leave);
             // 
             // lb_pkt_start
             // 
@@ -124,6 +126,7 @@
             this.tb_precision_zero.Name = "tb_precision_zero";
             this.tb_precision_zero.Size = new System.Drawing.Size(100, 20);
             this.tb_precision_zero.TabIndex = 7;
+            this.tb_precision_zero.Leave += new System.EventHandler(this.tb_precision_zero_Leave);
             // 
             // lb_precision_zero
             // 
@@ -234,6 +237,7 @@
             this.tb_precision_sqrt.Name = "tb_precision_sqrt";
             this.tb_precision_sqrt.Size = new System.Drawing.Size(100, 20);
             this.tb_precision_sqrt.TabIndex = 20;
+            this.tb_precision_sqrt.Leave += new System.EventHandler(this.tb_precision_sqrt_Leave);
             // 
             // lb_precision_sqrt
             // 
@@ -275,11 +279,19 @@
             this.b_ok_2.UseVisualStyleBackColor = true;
             this.b_ok_2.Click += new System.EventHandler(this.b_ok_2_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(743, 602);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 25;
+            // 
             // FormNewtonMethod
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(920, 866);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.b_ok_2);
             this.Controls.Add(this.lb_places_comma);
             this.Controls.Add(this.ud_places_comma);
@@ -340,6 +352,7 @@
         private System.Windows.Forms.Label lb_places_comma;
         private System.Windows.Forms.Button b_ok_2;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart_res;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
