@@ -23,6 +23,14 @@ namespace numerical_methods_Newton
 
         }
 
+        private void EndResponsive()
+        {
+            if (this.Width < 1690)
+            {
+
+            }
+        }
+
 
         /*private String safeFunction(String function)
         {
@@ -95,7 +103,7 @@ namespace numerical_methods_Newton
             NewtonMethod calculations = new NewtonMethod(tb_function.Text, x0, x1, f0, f1, eps0, epsx, i, (int)ud_places_comma.Value);
             calculations.calculate();
             tb_res_zero.Text = "" + calculations.res.x0;
-            tb_res_stop.Text = "" + calculations.res.x1;
+            //tb_res_stop.Text = "" + calculations.res.x1;
             tb_res_num_iter.Text = "" + calculations.res.i;
             tb_res_zero_function_val.Text = "" + calculations.res.f0;
 
@@ -276,6 +284,16 @@ namespace numerical_methods_Newton
                 MessageBox.Show("zly punkt startowy elo");
                 tb_pkt_start.Clear();
             }
+        }
+
+        private void tb_res_zero_function_val_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormNewtonMethod_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

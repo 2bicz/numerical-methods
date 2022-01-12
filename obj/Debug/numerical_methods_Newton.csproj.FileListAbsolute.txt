@@ -10,3 +10,4 @@ C:\Users\dom\source\repos\numerical_methods_Newton\obj\Debug\numerical_methods_N
 C:\Users\dom\source\repos\numerical_methods_Newton\obj\Debug\numerical_methods_Newton.csproj.CopyComplete
 C:\Users\dom\source\repos\numerical_methods_Newton\obj\Debug\numerical_methods_Newton.exe
 C:\Users\dom\source\repos\numerical_methods_Newton\obj\Debug\numerical_methods_Newton.pdb
+C:\Users\dom\source\repos\numerical_methods_Newton\bin\Debug\FontAwesome.Sharp.dll
