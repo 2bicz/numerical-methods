@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewtonMethod));
             this.chart_res = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tb_pkt_start = new System.Windows.Forms.TextBox();
@@ -54,9 +54,6 @@
             this.b_ok_2 = new System.Windows.Forms.Button();
             this.panelTitleBar = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.bMinimize = new FontAwesome.Sharp.IconButton();
-            this.bFullscreen = new FontAwesome.Sharp.IconButton();
-            this.bClose = new FontAwesome.Sharp.IconButton();
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -68,7 +65,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.bClear = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -77,7 +73,12 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.tb_res_zero = new System.Windows.Forms.TextBox();
-            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.bClear = new FontAwesome.Sharp.IconButton();
+            this.iconButtonInfo = new FontAwesome.Sharp.IconButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.bMinimize = new FontAwesome.Sharp.IconButton();
+            this.bFullscreen = new FontAwesome.Sharp.IconButton();
+            this.bClose = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.chart_res)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ud_iters)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ud_places_comma)).BeginInit();
@@ -93,7 +94,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.udXmin)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // chart_res
@@ -101,20 +102,20 @@
             this.chart_res.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea5.AxisX.MajorGrid.Enabled = false;
-            chartArea5.AxisY.MajorGrid.Enabled = false;
-            chartArea5.Name = "ChartArea1";
-            this.chart_res.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.chart_res.Legends.Add(legend5);
+            chartArea1.AxisX.MajorGrid.Enabled = false;
+            chartArea1.AxisY.MajorGrid.Enabled = false;
+            chartArea1.Name = "ChartArea1";
+            this.chart_res.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart_res.Legends.Add(legend1);
             this.chart_res.Location = new System.Drawing.Point(15, 16);
             this.chart_res.Name = "chart_res";
             this.chart_res.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate;
-            series5.ChartArea = "ChartArea1";
-            series5.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            this.chart_res.Series.Add(series5);
+            series1.ChartArea = "ChartArea1";
+            series1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart_res.Series.Add(series1);
             this.chart_res.Size = new System.Drawing.Size(1039, 654);
             this.chart_res.TabIndex = 0;
             this.chart_res.SelectionRangeChanged += new System.EventHandler<System.Windows.Forms.DataVisualization.Charting.CursorEventArgs>(this.chart_res_SelectionRangeChanged);
@@ -350,7 +351,8 @@
             // panelTitleBar
             // 
             this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
-            this.panelTitleBar.Controls.Add(this.pictureBoxLogo);
+            this.panelTitleBar.Controls.Add(this.iconButtonInfo);
+            this.panelTitleBar.Controls.Add(this.pictureBox1);
             this.panelTitleBar.Controls.Add(this.panel9);
             this.panelTitleBar.Controls.Add(this.label6);
             this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
@@ -373,67 +375,12 @@
             this.panel9.Size = new System.Drawing.Size(194, 43);
             this.panel9.TabIndex = 4;
             // 
-            // bMinimize
-            // 
-            this.bMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
-            this.bMinimize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.bMinimize.FlatAppearance.BorderSize = 0;
-            this.bMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bMinimize.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal;
-            this.bMinimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(247)))), ((int)(((byte)(238)))));
-            this.bMinimize.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
-            this.bMinimize.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(247)))), ((int)(((byte)(238)))));
-            this.bMinimize.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.bMinimize.IconSize = 15;
-            this.bMinimize.Location = new System.Drawing.Point(2, 0);
-            this.bMinimize.Name = "bMinimize";
-            this.bMinimize.Size = new System.Drawing.Size(64, 43);
-            this.bMinimize.TabIndex = 3;
-            this.bMinimize.UseVisualStyleBackColor = false;
-            this.bMinimize.Click += new System.EventHandler(this.bMinimize_Click);
-            // 
-            // bFullscreen
-            // 
-            this.bFullscreen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
-            this.bFullscreen.Dock = System.Windows.Forms.DockStyle.Right;
-            this.bFullscreen.FlatAppearance.BorderSize = 0;
-            this.bFullscreen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bFullscreen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(247)))), ((int)(((byte)(238)))));
-            this.bFullscreen.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
-            this.bFullscreen.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(247)))), ((int)(((byte)(238)))));
-            this.bFullscreen.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.bFullscreen.IconSize = 20;
-            this.bFullscreen.Location = new System.Drawing.Point(66, 0);
-            this.bFullscreen.Name = "bFullscreen";
-            this.bFullscreen.Size = new System.Drawing.Size(64, 43);
-            this.bFullscreen.TabIndex = 2;
-            this.bFullscreen.UseVisualStyleBackColor = false;
-            this.bFullscreen.Click += new System.EventHandler(this.bFullscreen_Click);
-            // 
-            // bClose
-            // 
-            this.bClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
-            this.bClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.bClose.FlatAppearance.BorderSize = 0;
-            this.bClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(247)))), ((int)(((byte)(238)))));
-            this.bClose.IconChar = FontAwesome.Sharp.IconChar.Times;
-            this.bClose.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(247)))), ((int)(((byte)(238)))));
-            this.bClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.bClose.IconSize = 20;
-            this.bClose.Location = new System.Drawing.Point(130, 0);
-            this.bClose.Name = "bClose";
-            this.bClose.Size = new System.Drawing.Size(64, 43);
-            this.bClose.TabIndex = 1;
-            this.bClose.UseVisualStyleBackColor = false;
-            this.bClose.Click += new System.EventHandler(this.bClose_Click);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 18F);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(247)))), ((int)(((byte)(238)))));
-            this.label6.Location = new System.Drawing.Point(172, 35);
+            this.label6.Location = new System.Drawing.Point(145, 37);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(608, 32);
             this.label6.TabIndex = 0;
@@ -564,22 +511,6 @@
             this.panel3.TabIndex = 26;
             this.panel3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseMove);
             // 
-            // bClear
-            // 
-            this.bClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
-            this.bClear.FlatAppearance.BorderSize = 0;
-            this.bClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bClear.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
-            this.bClear.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(247)))), ((int)(((byte)(238)))));
-            this.bClear.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.bClear.IconSize = 30;
-            this.bClear.Location = new System.Drawing.Point(124, 309);
-            this.bClear.Name = "bClear";
-            this.bClear.Size = new System.Drawing.Size(79, 46);
-            this.bClear.TabIndex = 24;
-            this.bClear.UseVisualStyleBackColor = false;
-            this.bClear.Click += new System.EventHandler(this.bClear_Click);
-            // 
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -685,17 +616,103 @@
             this.tb_res_zero.Size = new System.Drawing.Size(234, 25);
             this.tb_res_zero.TabIndex = 12;
             // 
-            // pictureBoxLogo
+            // bClear
             // 
-            this.pictureBoxLogo.ErrorImage = global::numerical_methods_Newton.Properties.Resources.metody2;
-            this.pictureBoxLogo.Image = global::numerical_methods_Newton.Properties.Resources.metody2;
-            this.pictureBoxLogo.InitialImage = global::numerical_methods_Newton.Properties.Resources.metody2;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(70, 13);
-            this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(87, 77);
-            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBoxLogo.TabIndex = 5;
-            this.pictureBoxLogo.TabStop = false;
+            this.bClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
+            this.bClear.FlatAppearance.BorderSize = 0;
+            this.bClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bClear.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.bClear.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(247)))), ((int)(((byte)(238)))));
+            this.bClear.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.bClear.IconSize = 30;
+            this.bClear.Location = new System.Drawing.Point(124, 309);
+            this.bClear.Name = "bClear";
+            this.bClear.Size = new System.Drawing.Size(79, 46);
+            this.bClear.TabIndex = 24;
+            this.bClear.UseVisualStyleBackColor = false;
+            this.bClear.Click += new System.EventHandler(this.bClear_Click);
+            // 
+            // iconButtonInfo
+            // 
+            this.iconButtonInfo.FlatAppearance.BorderSize = 0;
+            this.iconButtonInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(247)))), ((int)(((byte)(238)))));
+            this.iconButtonInfo.IconChar = FontAwesome.Sharp.IconChar.InfoCircle;
+            this.iconButtonInfo.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(247)))), ((int)(((byte)(238)))));
+            this.iconButtonInfo.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonInfo.IconSize = 25;
+            this.iconButtonInfo.Location = new System.Drawing.Point(1634, 71);
+            this.iconButtonInfo.Name = "iconButtonInfo";
+            this.iconButtonInfo.Size = new System.Drawing.Size(40, 32);
+            this.iconButtonInfo.TabIndex = 6;
+            this.iconButtonInfo.UseVisualStyleBackColor = true;
+            this.iconButtonInfo.Click += new System.EventHandler(this.iconButtonInfo_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Image = global::numerical_methods_Newton.Properties.Resources.metody2;
+            this.pictureBox1.Location = new System.Drawing.Point(35, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(105, 85);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
+            // bMinimize
+            // 
+            this.bMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
+            this.bMinimize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.bMinimize.FlatAppearance.BorderSize = 0;
+            this.bMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bMinimize.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal;
+            this.bMinimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(247)))), ((int)(((byte)(238)))));
+            this.bMinimize.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
+            this.bMinimize.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(247)))), ((int)(((byte)(238)))));
+            this.bMinimize.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.bMinimize.IconSize = 15;
+            this.bMinimize.Location = new System.Drawing.Point(2, 0);
+            this.bMinimize.Name = "bMinimize";
+            this.bMinimize.Size = new System.Drawing.Size(64, 43);
+            this.bMinimize.TabIndex = 3;
+            this.bMinimize.UseVisualStyleBackColor = false;
+            this.bMinimize.Click += new System.EventHandler(this.bMinimize_Click);
+            // 
+            // bFullscreen
+            // 
+            this.bFullscreen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
+            this.bFullscreen.Dock = System.Windows.Forms.DockStyle.Right;
+            this.bFullscreen.FlatAppearance.BorderSize = 0;
+            this.bFullscreen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bFullscreen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(247)))), ((int)(((byte)(238)))));
+            this.bFullscreen.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
+            this.bFullscreen.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(247)))), ((int)(((byte)(238)))));
+            this.bFullscreen.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.bFullscreen.IconSize = 20;
+            this.bFullscreen.Location = new System.Drawing.Point(66, 0);
+            this.bFullscreen.Name = "bFullscreen";
+            this.bFullscreen.Size = new System.Drawing.Size(64, 43);
+            this.bFullscreen.TabIndex = 2;
+            this.bFullscreen.UseVisualStyleBackColor = false;
+            this.bFullscreen.Click += new System.EventHandler(this.bFullscreen_Click);
+            // 
+            // bClose
+            // 
+            this.bClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
+            this.bClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.bClose.FlatAppearance.BorderSize = 0;
+            this.bClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(247)))), ((int)(((byte)(238)))));
+            this.bClose.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.bClose.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(247)))), ((int)(((byte)(238)))));
+            this.bClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.bClose.IconSize = 20;
+            this.bClose.Location = new System.Drawing.Point(130, 0);
+            this.bClose.Name = "bClose";
+            this.bClose.Size = new System.Drawing.Size(64, 43);
+            this.bClose.TabIndex = 1;
+            this.bClose.UseVisualStyleBackColor = false;
+            this.bClose.Click += new System.EventHandler(this.bClose_Click);
             // 
             // FormNewtonMethod
             // 
@@ -730,7 +747,7 @@
             this.panel5.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -781,7 +798,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.NumericUpDown udXmax;
         private System.Windows.Forms.NumericUpDown udXmin;
-        private System.Windows.Forms.PictureBox pictureBoxLogo;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private FontAwesome.Sharp.IconButton iconButtonInfo;
     }
 }
 
