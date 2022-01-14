@@ -140,13 +140,13 @@ namespace numerical_methods_Newton
 
             Series seriesX0 = chart_res.Series.Add("Wyznaczone miejsce zerowe");
             seriesX0.Color = Color.Gold;
+            seriesX0.MarkerStyle = MarkerStyle.Square;
             Series seriesApprox = chart_res.Series.Add("Kolejne przybliżenia miejsca zerowego");
             seriesApprox.Color = Color.Green;
+            seriesApprox.MarkerStyle = MarkerStyle.Circle;
             Series seriesStart = chart_res.Series.Add("Punkt startowy");
             seriesStart.Color = Color.Red;
-
-            Legend customLegend = CustomCloneLegend(chart_res, chart_res.Legends[0]);
-            chart_res.Legends.Add(customLegend);
+            seriesStart.MarkerStyle = MarkerStyle.Circle;
 
             for (int i = min; i <= max; i++)
             {
@@ -177,13 +177,16 @@ namespace numerical_methods_Newton
                 {
                     series.Points.AddXY(calculations.res.x0.ToString(), parser.getFunctionValue(calculations.res.x0));
                     series.Points[series.Points.Count - 1].MarkerColor = Color.Gold;
-                    series.Points[series.Points.Count - 1].MarkerStyle = MarkerStyle.Star5;
-                    series.Points[series.Points.Count - 1].MarkerSize = 20;
+                    series.Points[series.Points.Count - 1].MarkerStyle = MarkerStyle.Square;
+                    series.Points[series.Points.Count - 1].MarkerSize = 15;
                     continue;
                 }
 
                 series.Points.AddXY(i.ToString(), parser.getFunctionValue(i));
             }
+
+            Legend customLegend = CustomCloneLegend(chart_res, chart_res.Legends[0]);
+            chart_res.Legends.Add(customLegend);
 
             chart_res.ChartAreas[0].AxisY.ScaleView.Zoomable = true;
             chart_res.MouseWheel += chart_res_MouseWheel;
@@ -201,7 +204,7 @@ namespace numerical_methods_Newton
             newL.Alignment = oLeg.Alignment;
             // a few numbers for the drawing to play with; you may want to use floats..
             int iw = 32; int iw2 = iw / 2; int ih = 18; int ih2 = ih / 2;
-            int ir = 12; int ir2 = ir / 2; int lw = 3;
+            int ir = 18; int ir2 = ir / 2; int lw = 3;
             // we want to access the series' colors!
             chart.ApplyPaletteColors();
             foreach (Series S in chart.Series)
