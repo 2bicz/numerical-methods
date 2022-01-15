@@ -241,7 +241,7 @@ namespace numerical_methods_Newton
                 series.Points.AddXY(i.ToString(), parser.getFunctionValue(i));
             }
 
-            if (calculations.res.x0 - Convert.ToDouble(tb_pkt_start.Text) < 1 || Convert.ToDouble(tb_pkt_start.Text) - calculations.res.x0 < 1)
+            if (Math.Abs(calculations.res.x0 - Convert.ToDouble(tb_pkt_start.Text)) < 1 || Math.Abs(Convert.ToDouble(tb_pkt_start.Text) - calculations.res.x0) < 1)
                 MessageBox.Show("Różnica między punktem startowym a wyznaczonym miejscem zerowym jest mniejsza niż założony interwał. \n\n" +
                                 "Nie można poprawnie nanieść na wykres wyznaczonego miejsca zerowego!");
 
