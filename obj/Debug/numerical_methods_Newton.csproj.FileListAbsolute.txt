@@ -12,4 +12,5 @@ C:\Users\dom\source\repos\numerical_methods_Newton\obj\Debug\numerical_methods_N
 C:\Users\dom\source\repos\numerical_methods_Newton\obj\Debug\numerical_methods_Newton.pdb
 C:\Users\dom\source\repos\numerical_methods_Newton\bin\Debug\FontAwesome.Sharp.dll
 C:\Users\dom\source\repos\numerical_methods_Newton\obj\Debug\okienko.Info.resources
-C:\Users\dom\source\repos\numerical_methods_Newton\obj\Debug\numerical_methods_Newton.userControlAbout.resources
+C:\Users\dom\source\repos\numerical_methods_Newton\obj\Debug\numerical_methods_Newton.Form1.resources
+C:\Users\dom\source\repos\numerical_methods_Newton\obj\Debug\numerical_methods_Newton.FormAbout.resources

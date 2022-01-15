@@ -58,17 +58,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EasyParser.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormNewtonMethod.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormNewtonMethod.Designer.cs">
       <DependentUpon>FormNewtonMethod.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControlAbout.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="FormAbout.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserControlAbout.Designer.cs">
-      <DependentUpon>UserControlAbout.cs</DependentUpon>
+    <Compile Include="FormAbout.Designer.cs">
+      <DependentUpon>FormAbout.cs</DependentUpon>
     </Compile>
     <Compile Include="info.cs">
       <SubType>Form</SubType>
@@ -79,11 +85,14 @@
     <Compile Include="NewtonMethod.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewtonMethod.resx">
       <DependentUpon>FormNewtonMethod.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControlAbout.resx">
-      <DependentUpon>UserControlAbout.cs</DependentUpon>
+    <EmbeddedResource Include="FormAbout.resx">
+      <DependentUpon>FormAbout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="info.resx">
       <DependentUpon>info.cs</DependentUpon>

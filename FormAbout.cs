@@ -10,9 +10,21 @@ using System.Windows.Forms;
 
 namespace numerical_methods_Newton
 {
-    public partial class userControlAbout : UserControl
+    public partial class formAbout : Form
     {
-        public userControlAbout()
+        private static formAbout _instance;
+
+        public static formAbout Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = new formAbout();
+                return _instance;
+            }
+        }
+
+        public formAbout()
         {
             InitializeComponent();
         }
@@ -35,11 +47,18 @@ namespace numerical_methods_Newton
         private void iconButtonGithub_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/2bicz/numerical-methods");
+            
         }
 
         private void iconButtonMxparser_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("http://mathparser.org");
+        }
+
+        private void userControlAbout_Load(object sender, EventArgs e)
+        {
+            //this.Dock = DockStyle.Fill;
+            //this.Anchor = AnchorStyles.None;
         }
     }
 }

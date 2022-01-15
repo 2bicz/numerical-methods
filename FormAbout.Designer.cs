@@ -1,6 +1,6 @@
 ﻿namespace numerical_methods_Newton
 {
-    partial class userControlAbout
+    partial class formAbout
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(userControlAbout));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formAbout));
             this.panelAboutLeft = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -58,6 +58,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.iconButtonMxparser = new FontAwesome.Sharp.IconButton();
             this.label8 = new System.Windows.Forms.Label();
+            this.panelMainUC = new System.Windows.Forms.Panel();
             this.panelAboutLeft.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -72,10 +73,12 @@
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panelMainUC.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelAboutLeft
             // 
+            this.panelAboutLeft.BackColor = System.Drawing.Color.White;
             this.panelAboutLeft.Controls.Add(this.panel3);
             this.panelAboutLeft.Controls.Add(this.panel2);
             this.panelAboutLeft.Controls.Add(this.panel1);
@@ -91,13 +94,14 @@
             this.panel3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(137)))));
             this.panel3.Controls.Add(this.label2);
-            this.panel3.Location = new System.Drawing.Point(99, 421);
+            this.panel3.Location = new System.Drawing.Point(95, 409);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(757, 70);
             this.panel3.TabIndex = 1;
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(247)))), ((int)(((byte)(238)))));
@@ -115,7 +119,7 @@
             this.panel2.Controls.Add(this.panel8);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label6);
-            this.panel2.Location = new System.Drawing.Point(43, 456);
+            this.panel2.Location = new System.Drawing.Point(39, 464);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(873, 421);
             this.panel2.TabIndex = 1;
@@ -173,13 +177,14 @@
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(99, 32);
+            this.panel1.Location = new System.Drawing.Point(95, 24);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(757, 70);
             this.panel1.TabIndex = 0;
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(247)))), ((int)(((byte)(238)))));
@@ -196,7 +201,7 @@
             this.panelInfoMethod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(137)))));
             this.panelInfoMethod.Controls.Add(this.iconButtonWikipedia);
             this.panelInfoMethod.Controls.Add(this.label5);
-            this.panelInfoMethod.Location = new System.Drawing.Point(43, 54);
+            this.panelInfoMethod.Location = new System.Drawing.Point(39, 46);
             this.panelInfoMethod.Name = "panelInfoMethod";
             this.panelInfoMethod.Size = new System.Drawing.Size(873, 338);
             this.panelInfoMethod.TabIndex = 0;
@@ -223,7 +228,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(247)))), ((int)(((byte)(238)))));
-            this.label5.Location = new System.Drawing.Point(15, 79);
+            this.label5.Location = new System.Drawing.Point(37, 79);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(798, 150);
             this.label5.TabIndex = 1;
@@ -232,6 +237,7 @@
             // 
             // panelAboutRight
             // 
+            this.panelAboutRight.BackColor = System.Drawing.Color.White;
             this.panelAboutRight.Controls.Add(this.panel10);
             this.panelAboutRight.Controls.Add(this.panel9);
             this.panelAboutRight.Controls.Add(this.panel7);
@@ -250,7 +256,7 @@
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(137)))));
             this.panel10.Controls.Add(this.label11);
             this.panel10.Controls.Add(this.label10);
-            this.panel10.Location = new System.Drawing.Point(30, 712);
+            this.panel10.Location = new System.Drawing.Point(25, 720);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(488, 165);
             this.panel10.TabIndex = 5;
@@ -283,7 +289,7 @@
             this.panel9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
             this.panel9.Controls.Add(this.pictureBoxDepartment);
-            this.panel9.Location = new System.Drawing.Point(362, 712);
+            this.panel9.Location = new System.Drawing.Point(357, 720);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(339, 165);
             this.panel9.TabIndex = 4;
@@ -302,13 +308,14 @@
             this.panel7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
             this.panel7.Controls.Add(this.label4);
-            this.panel7.Location = new System.Drawing.Point(88, 308);
+            this.panel7.Location = new System.Drawing.Point(83, 301);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(555, 70);
             this.panel7.TabIndex = 3;
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(247)))), ((int)(((byte)(238)))));
@@ -324,9 +331,9 @@
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(137)))));
             this.panel6.Controls.Add(this.iconButtonGithub);
             this.panel6.Controls.Add(this.label9);
-            this.panel6.Location = new System.Drawing.Point(30, 334);
+            this.panel6.Location = new System.Drawing.Point(25, 327);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(671, 361);
+            this.panel6.Size = new System.Drawing.Size(671, 370);
             this.panel6.TabIndex = 3;
             // 
             // iconButtonGithub
@@ -339,7 +346,7 @@
             this.iconButtonGithub.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(247)))), ((int)(((byte)(238)))));
             this.iconButtonGithub.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButtonGithub.IconSize = 60;
-            this.iconButtonGithub.Location = new System.Drawing.Point(0, 301);
+            this.iconButtonGithub.Location = new System.Drawing.Point(0, 310);
             this.iconButtonGithub.Name = "iconButtonGithub";
             this.iconButtonGithub.Size = new System.Drawing.Size(671, 60);
             this.iconButtonGithub.TabIndex = 9;
@@ -351,7 +358,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(247)))), ((int)(((byte)(238)))));
-            this.label9.Location = new System.Drawing.Point(12, 60);
+            this.label9.Location = new System.Drawing.Point(12, 62);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(646, 225);
             this.label9.TabIndex = 8;
@@ -363,13 +370,14 @@
             this.panel5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(137)))));
             this.panel5.Controls.Add(this.label3);
-            this.panel5.Location = new System.Drawing.Point(88, 32);
+            this.panel5.Location = new System.Drawing.Point(83, 24);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(555, 70);
             this.panel5.TabIndex = 2;
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(247)))), ((int)(((byte)(238)))));
@@ -386,7 +394,7 @@
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
             this.panel4.Controls.Add(this.iconButtonMxparser);
             this.panel4.Controls.Add(this.label8);
-            this.panel4.Location = new System.Drawing.Point(30, 52);
+            this.panel4.Location = new System.Drawing.Point(25, 44);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(671, 231);
             this.panel4.TabIndex = 2;
@@ -422,14 +430,26 @@
     "ostaci zwykłego tekstu.";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // userControlAbout
+            // panelMainUC
+            // 
+            this.panelMainUC.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelMainUC.Controls.Add(this.panelAboutRight);
+            this.panelMainUC.Controls.Add(this.panelAboutLeft);
+            this.panelMainUC.Location = new System.Drawing.Point(0, 2);
+            this.panelMainUC.Name = "panelMainUC";
+            this.panelMainUC.Size = new System.Drawing.Size(1674, 911);
+            this.panelMainUC.TabIndex = 2;
+            // 
+            // formAbout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panelAboutRight);
-            this.Controls.Add(this.panelAboutLeft);
-            this.Name = "userControlAbout";
-            this.Size = new System.Drawing.Size(1674, 911);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1674, 911);
+            this.Controls.Add(this.panelMainUC);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "formAbout";
+            this.Load += new System.EventHandler(this.userControlAbout_Load);
             this.panelAboutLeft.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -453,6 +473,7 @@
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panelMainUC.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -460,33 +481,34 @@
         #endregion
 
         private System.Windows.Forms.Panel panelAboutLeft;
-        private System.Windows.Forms.Panel panelAboutRight;
-        private System.Windows.Forms.Panel panelInfoMethod;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
-        private FontAwesome.Sharp.IconButton iconButtonWikipedia;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel4;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBoxAlgo;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private FontAwesome.Sharp.IconButton iconButtonMxparser;
-        private System.Windows.Forms.Label label8;
-        private FontAwesome.Sharp.IconPictureBox iconPictureBoxAlgo;
-        private System.Windows.Forms.Label label9;
-        private FontAwesome.Sharp.IconButton iconButtonGithub;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.PictureBox pictureBoxDepartment;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panelInfoMethod;
+        private FontAwesome.Sharp.IconButton iconButtonWikipedia;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panelAboutRight;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.PictureBox pictureBoxDepartment;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel6;
+        private FontAwesome.Sharp.IconButton iconButtonGithub;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel4;
+        private FontAwesome.Sharp.IconButton iconButtonMxparser;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panelMainUC;
     }
 }

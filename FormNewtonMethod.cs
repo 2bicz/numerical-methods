@@ -10,10 +10,22 @@ namespace numerical_methods_Newton
     public partial class FormNewtonMethod : Form
     {
         private EasyParser parser;
+        private formAbout formAb;
+        private Panel aboutMainPanel;
 
         public FormNewtonMethod()
         {
             InitializeComponent();
+            formAb = new formAbout() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            aboutMainPanel = new Panel();
+            aboutMainPanel.Dock = DockStyle.Fill;
+            this.Controls.Add(aboutMainPanel);
+            aboutMainPanel.BringToFront();
+            this.formAb.Dock = DockStyle.Fill;
+            aboutMainPanel.Controls.Add(this.formAb);
+            this.formAb.Show();
+            aboutMainPanel.Enabled = false;
+            aboutMainPanel.Hide();
 
             chart_res.Series.Clear();
             tb_precision_zero.Enabled = false;
@@ -199,17 +211,16 @@ namespace numerical_methods_Newton
         Legend CustomCloneLegend(Chart chart, Legend oLeg)
         {
             Legend newL = new Legend();
-            newL.Position = oLeg.Position;  // copy a few settings:
+            newL.Position = oLeg.Position;  // kopiowanie kilku ustawień z przekazywanej legendy
             newL.Docking = oLeg.Docking;
             newL.Alignment = oLeg.Alignment;
-            // a few numbers for the drawing to play with; you may want to use floats..
+
             int iw = 32; int iw2 = iw / 2; int ih = 18; int ih2 = ih / 2;
             int ir = 18; int ir2 = ir / 2; int lw = 3;
-            // we want to access the series' colors!
+
             chart.ApplyPaletteColors();
             foreach (Series S in chart.Series)
             {
-                // the drawing code is only for linechart and markerstyles circle or square:
                 Bitmap bmp = new Bitmap(iw, ih);
                 using (Graphics G = Graphics.FromImage(bmp))
                 using (Pen pen = new Pen(S.Color, lw))
@@ -221,10 +232,11 @@ namespace numerical_methods_Newton
                     else if (S.MarkerStyle == MarkerStyle.Square)
                         G.FillRectangle(brush, iw2 - ir2, ih2 - ir2, ir, ir);
                 }
-                // add a new NamesImage
+                // dodawanie nowego obrazu z nazwami series
                 NamedImage ni = new NamedImage(S.Name, bmp);
                 chart.Images.Add(ni);
-                // create and add the custom legend item
+
+                // tworzenie i dodawanie customowej legendy
                 LegendItem lit = new LegendItem(S.Name, Color.Red, S.Name);
                 newL.CustomItems.Add(lit);
             }
@@ -490,6 +502,25 @@ namespace numerical_methods_Newton
         private void iconButtonInfo_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void iconButtonInfo_Click_1(object sender, EventArgs e)
+        {
+
+            if (panelMain.Enabled)
+            {
+                panelMain.Enabled = false;
+                panelMain.Visible = false;
+                aboutMainPanel.Enabled = true;
+                aboutMainPanel.Show();   
+            }
+            else if (!panelMain.Enabled)
+            {
+                panelMain.Enabled = true;
+                panelMain.Visible = true;
+                aboutMainPanel.Enabled = false;
+                aboutMainPanel.Hide();
+            }
         }
     }
 }
