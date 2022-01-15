@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 using org.mariuszgromada.math.mxparser;
 
 namespace numerical_methods_Newton
@@ -37,14 +34,13 @@ namespace numerical_methods_Newton
             }
             catch(NullReferenceException err)
             {
-                Console.WriteLine("Error message: "+ err.Message);
-                Console.WriteLine("Error source: "+ err.Source);
+                MessageBox.Show("Error message: " + err.Message + "\n Error source: " + err.Source);
             }
             return 1;
         }
 
-        // Obliczamy pochodną naszej funkcji
-        public double getFunctionDerivativeValue(double x)
+    // Obliczamy pochodną naszej funkcji
+    public double getFunctionDerivativeValue(double x)
         {
             try
             {
@@ -54,8 +50,7 @@ namespace numerical_methods_Newton
             }
             catch(NullReferenceException err)
             {
-                Console.WriteLine("Error message: " + err.Message);
-                Console.WriteLine("Error source: " + err.Source);
+                MessageBox.Show("Error message: " + err.Message + "\n Error source: " + err.Source);
             }
             return 1;
         }

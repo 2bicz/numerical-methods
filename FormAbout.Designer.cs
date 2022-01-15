@@ -193,7 +193,6 @@
             this.label1.Size = new System.Drawing.Size(233, 30);
             this.label1.TabIndex = 0;
             this.label1.Text = "O metodzie Newtona";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // panelInfoMethod
             // 
@@ -386,7 +385,6 @@
             this.label3.Size = new System.Drawing.Size(113, 30);
             this.label3.TabIndex = 0;
             this.label3.Text = "mXparser";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // panel4
             // 
@@ -449,7 +447,6 @@
             this.Controls.Add(this.panelMainUC);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "formAbout";
-            this.Load += new System.EventHandler(this.userControlAbout_Load);
             this.panelAboutLeft.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();

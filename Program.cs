@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace numerical_methods_Newton
@@ -16,7 +13,7 @@ namespace numerical_methods_Newton
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormNewtonMethod());
+            Application.Run(new FormPreload());
         }
     }
 }

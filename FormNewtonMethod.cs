@@ -9,10 +9,15 @@ namespace numerical_methods_Newton
 {
     public partial class FormNewtonMethod : Form
     {
+        #region pola-prywatne
         private EasyParser parser;
         private formAbout formAb;
         private Panel aboutMainPanel;
+        #endregion
 
+        //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+        #region konstruktor
         public FormNewtonMethod()
         {
             InitializeComponent();
@@ -38,7 +43,12 @@ namespace numerical_methods_Newton
             Color icCol = Color.FromArgb(12, 19, 22);
             bClear.IconColor = icCol;
         }
+        #endregion
 
+        //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+        #region przyciski-lewego-panelu
+        // przycisk, po którego kliknięciu obliczane są zwracane wartości i rysowany jest nowy wykres z naniesionymi wynikami
         private void b_ok_Click(object sender, EventArgs e)
         {
             try
@@ -49,7 +59,7 @@ namespace numerical_methods_Newton
                 double epsx = Convert.ToDouble(tb_precision_sqrt.Text);
                 int i = (int)ud_iters.Value;
 
-                NewtonMethod calculations = new NewtonMethod(tb_function.Text, x0, x1, f0, f1, eps0, epsx, i, (int)ud_places_comma.Value);
+                NewtonMethod calculations = new NewtonMethod(tb_function.Text, x0, f0, f1, eps0, epsx, i, (int)ud_places_comma.Value);
                 calculations.calculate();
                 tb_res_zero.Text = "" + calculations.res.x0;
                 tb_res_num_iter.Text = "" + calculations.res.i;
@@ -57,14 +67,12 @@ namespace numerical_methods_Newton
 
                 drawChart(calculations);
             }
-            catch
-            {
-
-            }         
+            catch { }
         }
 
+        // przycisk, po którego kliknięciu rysowany jest pomocniczy wykres funkcji
         private void b_ok_2_Click(object sender, EventArgs e)
-        {    
+        {
             try
             {
                 this.parser = new EasyParser(tb_function.Text);
@@ -82,15 +90,50 @@ namespace numerical_methods_Newton
                 Color icCol = Color.FromArgb(232, 247, 238);
                 bClear.IconColor = icCol;
 
-
                 drawChart();
             }
-            catch
-            {
-
-            }
+            catch { }
         }
 
+        // przycisk, po którego kliknięciu następuje reset aplikacji
+        private void bClear_Click(object sender, EventArgs e)
+        {
+            chart_res.Series.Clear();
+            chart_res.Titles.Clear();
+
+            tb_function.Text = "";
+            tb_pkt_start.Text = "";
+            tb_precision_sqrt.Text = "";
+            tb_precision_zero.Text = "";
+
+            tb_res_zero.Text = "";
+            tb_res_num_iter.Text = "";
+            tb_res_zero_function_val.Text = "";
+
+            udXmin.Value = 0;
+            udXmax.Value = 0;
+            ud_iters.Value = 1;
+            ud_places_comma.Value = 1;
+
+
+            tb_function.Enabled = true;
+            udXmin.Enabled = true;
+            udXmax.Enabled = true;
+            tb_precision_zero.Enabled = false;
+            tb_precision_sqrt.Enabled = false;
+            tb_pkt_start.Enabled = false;
+            ud_iters.Enabled = false;
+            ud_places_comma.Enabled = false;
+            b_ok.Enabled = false;
+            b_ok_2.Enabled = false;
+            Color icCol = Color.FromArgb(12, 19, 22);
+            bClear.IconColor = icCol;
+        }
+        #endregion
+
+        //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+        #region rysowanie-wykresu
         // rysowanie wstepnego, pomocniczego wykresu funkcji po nacisnieciu przycisku 'rysuj'
         private void drawChart()
         {
@@ -113,7 +156,6 @@ namespace numerical_methods_Newton
             Series series = chart_res.Series.Add("f(x) = " + tb_function.Text);
             series.ChartType = SeriesChartType.Spline;
                    
-
             for (int i = min; i <= max; i++)
             {
                 series.Points.AddXY(i.ToString(), parser.getFunctionValue(i));
@@ -126,11 +168,10 @@ namespace numerical_methods_Newton
             chart_res.ChartAreas[0].CursorX.AutoScroll = true;
             chart_res.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;
         }
-
+        
         // ponowne rysowanie wykresu po nacisnieciu przycisku 'oblicz'
         private void drawChart(NewtonMethod calculations)
         {
-
             int min = (int)udXmin.Value;
             int max = (int)udXmax.Value;
 
@@ -162,6 +203,7 @@ namespace numerical_methods_Newton
 
             for (int i = min; i <= max; i++)
             {
+                // rysowanie przybliżeń miejsca zerowego na wykresie
                 foreach (double element in calculations.zeroApproxList)
                 {
                     if (i <= element && i + 1 > element)
@@ -176,6 +218,7 @@ namespace numerical_methods_Newton
                     }
                 }
 
+                // rysowanie punktu startowego na wykresie
                 if (i <= Convert.ToDouble(tb_pkt_start.Text) && i + 1 > Convert.ToDouble(tb_pkt_start.Text))
                 {
                     series.Points.AddXY(tb_pkt_start.Text, parser.getFunctionValue(Convert.ToDouble(tb_pkt_start.Text)));
@@ -185,6 +228,7 @@ namespace numerical_methods_Newton
                     continue;
                 }
 
+                // rysowanie znalezionego miejsca zerowego na wykresie
                 if (i < calculations.res.x0 && i + 1 > calculations.res.x0)
                 {
                     series.Points.AddXY(calculations.res.x0.ToString(), parser.getFunctionValue(calculations.res.x0));
@@ -197,6 +241,11 @@ namespace numerical_methods_Newton
                 series.Points.AddXY(i.ToString(), parser.getFunctionValue(i));
             }
 
+            if (calculations.res.x0 - Convert.ToDouble(tb_pkt_start.Text) < 1 || Convert.ToDouble(tb_pkt_start.Text) - calculations.res.x0 < 1)
+                MessageBox.Show("Różnica między punktem startowym a wyznaczonym miejscem zerowym jest mniejsza niż założony interwał. \n\n" +
+                                "Nie można poprawnie nanieść na wykres wyznaczonego miejsca zerowego!");
+
+            // dodawanie informacji o przybliżeniach, punkcie startowym oraz miejscu zerowym do legendy wykresu
             Legend customLegend = CustomCloneLegend(chart_res, chart_res.Legends[0]);
             chart_res.Legends.Add(customLegend);
 
@@ -206,8 +255,16 @@ namespace numerical_methods_Newton
             chart_res.ChartAreas[0].AxisX.ScaleView.Zoomable = true;
             chart_res.ChartAreas[0].CursorX.AutoScroll = true;
             chart_res.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;
+
+            if(calculations.res.x0 < (double)udXmin.Value || calculations.res.x0 > (double)udXmax.Value)
+            {
+                MessageBox.Show("Przybliżone miejsce zerowe jest poza zakresem rysowanego wykresu! \n" +
+                                "Przybliżone miejsce zerowe: " + calculations.res.x0 + "\n" +
+                                "Zakres rysowanego wykresu: od " + (int)udXmin.Value + " do " + (int)udXmax.Value);
+            }
         }
 
+        // funkcja odpowiadająca za stworzenie i dodanie do legendy wykresu ikonek odpowiadających zaznaczeniom na wykresie
         Legend CustomCloneLegend(Chart chart, Legend oLeg)
         {
             Legend newL = new Legend();
@@ -243,7 +300,12 @@ namespace numerical_methods_Newton
             oLeg.Enabled = false;
             return newL;
         }
+        #endregion
 
+        //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+        #region zoom-wykresu
+        // zoomowanie wykresu za pomocą kółka myszki
         private void chart_res_MouseWheel(object sender, MouseEventArgs e)
         {
             var chart = (Chart)sender;
@@ -273,62 +335,13 @@ namespace numerical_methods_Newton
                     yAxis.ScaleView.Zoom(posYStart, posYFinish);
                 }
             }
-            catch { }
-        }
-
-        private void tb_precision_zero_Leave(object sender, EventArgs e)
-        {
-            String precision = tb_precision_zero.Text;
-            if (!Regex.Match(precision, "^[0]{1},([0-9]+)?[1-9]$").Success)
+            catch (Exception err)
             {
-                MessageBox.Show("Nieprawidłowy format przybliżenia! \n" +
-                                "Prawidłowy format: 0,.....");
-                tb_precision_zero.Clear();
+                MessageBox.Show("Error message: " + err.Message + "\n Error source: " + err.Source);
             }
-
-            if (tb_pkt_start.Text != "" && tb_precision_sqrt.Text != "" && tb_precision_zero.Text != "")
-                if (!b_ok.Enabled)
-                    b_ok.Enabled = true;
-            if (tb_pkt_start.Text == "" || tb_precision_sqrt.Text == "" || tb_precision_zero.Text == "")
-                if (b_ok.Enabled)
-                    b_ok.Enabled = false;
         }
 
-        private void tb_precision_sqrt_Leave(object sender, EventArgs e)
-        {
-            String precision = tb_precision_sqrt.Text;
-            if (!Regex.Match(precision, "^[0]{1},([0-9]+)?[1-9]$").Success)
-            {
-                MessageBox.Show("Nieprawidłowy format przybliżenia! \n" +
-                                "Prawidłowy format: 0,.....");
-                tb_precision_sqrt.Clear();
-            }
-
-        }
-
-        private void tb_pkt_start_Leave(object sender, EventArgs e)
-        {
-            String pktStart = tb_pkt_start.Text;
-
-            if (!Regex.Match(pktStart, "^[-]?(?!00)(?!01)(?!02)(?!03)(?!04)(?!05)(?!06)(?!07)(?!08)(?!09)(?!-0)[0-9]{1}([0-9]{1,})?$").Success)
-            {
-                MessageBox.Show("Nieprawidłowy punkt startowy!");
-                tb_pkt_start.Clear();
-            }
-
-            
-        }
-
-        private void tb_res_zero_function_val_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FormNewtonMethod_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        // zoomowanie wykresu poprzez zaznaczenie zakresu na wykresie i kliknięcie lewym przyciskiem myszy
         private void chart_res_SelectionRangeChanged(object sender, CursorEventArgs e)
         {
             double startX, endX, startY, endY;
@@ -362,7 +375,59 @@ namespace numerical_methods_Newton
             chart_res.ChartAreas[0].AxisX.ScaleView.Zoom(startX, (endX - startX), DateTimeIntervalType.Auto, true);
             chart_res.ChartAreas[0].AxisY.ScaleView.Zoom(startY, (endY - startY), DateTimeIntervalType.Auto, true);
         }
+        #endregion
 
+        //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+        #region zabezpieczenia
+        // zastosowanie regexu do pola tekstowego epsilon 0
+        private void tb_precision_zero_Leave(object sender, EventArgs e)
+        {
+            String precision = tb_precision_zero.Text;
+            if (!Regex.Match(precision, "^[0]{1},([0-9]+)?[1-9]$").Success)
+            {
+                MessageBox.Show("Nieprawidłowy format przybliżenia! \n" +
+                                "Prawidłowy format: 0,.....");
+                tb_precision_zero.Clear();
+            }
+
+            if (tb_pkt_start.Text != "" && tb_precision_sqrt.Text != "" && tb_precision_zero.Text != "")
+                if (!b_ok.Enabled)
+                    b_ok.Enabled = true;
+            if (tb_pkt_start.Text == "" || tb_precision_sqrt.Text == "" || tb_precision_zero.Text == "")
+                if (b_ok.Enabled)
+                    b_ok.Enabled = false;
+        }
+
+        // zastosowanie regexu do pola tekstowego epsilon sqrt
+        private void tb_precision_sqrt_Leave(object sender, EventArgs e)
+        {
+            String precision = tb_precision_sqrt.Text;
+            if (!Regex.Match(precision, "^[0]{1},([0-9]+)?[1-9]$").Success)
+            {
+                MessageBox.Show("Nieprawidłowy format przybliżenia! \n" +
+                                "Prawidłowy format: 0,.....");
+                tb_precision_sqrt.Clear();
+            }
+
+        }
+
+        // zastosowanie regexu do pola tekstowego punktu startowego
+        private void tb_pkt_start_Leave(object sender, EventArgs e)
+        {
+            String pktStart = tb_pkt_start.Text;
+
+            if (!Regex.Match(pktStart, "^[-]?(?!00)(?!01)(?!02)(?!03)(?!04)(?!05)(?!06)(?!07)(?!08)(?!09)(?!-0)[0-9]{1}([0-9]{1,})?$").Success)
+            {
+                MessageBox.Show("Nieprawidłowy punkt startowy!");
+                tb_pkt_start.Clear();
+            }    
+        }
+
+        // program sprawdza za każdym ruszeniem myszy w danym obszarze
+        // czy zostal podany punkt startowy, epsilon 0 oraz epsilon sqrt
+        // jesli tak, to przycisk 'oblicz' zostaje uruchomiony
+        // w przeciwnym wypadku zostaje zablokowany
         private void tb_pkt_start_MouseMove(object sender, MouseEventArgs e)
         {
             if (tb_pkt_start.Text != "" && tb_precision_sqrt.Text != "" && tb_precision_zero.Text != "")
@@ -373,6 +438,7 @@ namespace numerical_methods_Newton
                     b_ok.Enabled = false;
         }
 
+        // -||-
         private void tb_precision_zero_MouseMove(object sender, MouseEventArgs e)
         {
             if (tb_pkt_start.Text != "" && tb_precision_sqrt.Text != "" && tb_precision_zero.Text != "")
@@ -383,6 +449,7 @@ namespace numerical_methods_Newton
                     b_ok.Enabled = false;
         }
 
+        // -||-
         private void tb_precision_sqrt_MouseMove(object sender, MouseEventArgs e)
         {
             if (tb_pkt_start.Text != "" && tb_precision_sqrt.Text != "" && tb_precision_zero.Text != "")
@@ -393,6 +460,7 @@ namespace numerical_methods_Newton
                     b_ok.Enabled = false;
         }
 
+        // -||-
         private void panel3_MouseMove(object sender, MouseEventArgs e)
         {
             if (tb_pkt_start.Text != "" && tb_precision_sqrt.Text != "" && tb_precision_zero.Text != "")
@@ -403,40 +471,10 @@ namespace numerical_methods_Newton
                     b_ok.Enabled = false;
         }
 
-        private void bClear_Click(object sender, EventArgs e)
-        {
-            chart_res.Series.Clear();
-            chart_res.Titles.Clear();
-
-            tb_function.Text = "";
-            tb_pkt_start.Text = "";
-            tb_precision_sqrt.Text = "";
-            tb_precision_zero.Text = "";
-
-            tb_res_zero.Text = "";
-            tb_res_num_iter.Text = "";
-            tb_res_zero_function_val.Text = "";
-
-            udXmin.Value = 0;
-            udXmax.Value = 0;
-            ud_iters.Value = 1;
-            ud_places_comma.Value = 1;
-
-
-            tb_function.Enabled = true;
-            udXmin.Enabled = true;
-            udXmax.Enabled = true;
-            tb_precision_zero.Enabled = false;
-            tb_precision_sqrt.Enabled = false;
-            tb_pkt_start.Enabled = false;
-            ud_iters.Enabled = false;
-            ud_places_comma.Enabled = false;
-            b_ok.Enabled = false;
-            b_ok_2.Enabled = false;
-            Color icCol = Color.FromArgb(12, 19, 22);
-            bClear.IconColor = icCol;
-        }
-
+        // program sprawdza za każdym ruszeniem myszy w danym obszarze
+        // czy zostala podana funkcja
+        // jesli tak, to przycisk 'rysuj' zostaje uruchomiony
+        // w przeciwnym wypadku zostaje zablokowany
         private void tb_function_MouseMove(object sender, MouseEventArgs e)
         {
             if (tb_function.Text != "")
@@ -447,6 +485,7 @@ namespace numerical_methods_Newton
                     b_ok_2.Enabled = false;
         }
 
+        // -||-
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
             if (tb_function.Text != "")
@@ -456,17 +495,25 @@ namespace numerical_methods_Newton
                 if (b_ok_2.Enabled)
                     b_ok_2.Enabled = false;
         }
+        #endregion
 
+        //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+        #region przyciski-panelu-tytułowego
+        // zamykanie aplikacji
         private void bClose_Click(object sender, EventArgs e)
         {
             this.Close();
+            Application.Exit();
         }
 
+        //minimalizowanie aplikacji
         private void bMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
+        // włączanie trybu pełnoekranowego aplikacji
         private void bFullscreen_Click(object sender, EventArgs e)
         {
             if(this.WindowState == FormWindowState.Normal)
@@ -481,6 +528,31 @@ namespace numerical_methods_Newton
             }  
         }
 
+        // włączanie i wyłączanie okna z informacjami dotyczącymi projektu
+        // oraz włączanie i wyłączanie części obliczeniowej programu
+        private void iconButtonInfo_Click_1(object sender, EventArgs e)
+        {
+
+            if (panelMain.Enabled)
+            {
+                panelMain.Enabled = false;
+                panelMain.Visible = false;
+                aboutMainPanel.Enabled = true;
+                aboutMainPanel.Show();
+            }
+            else if (!panelMain.Enabled)
+            {
+                panelMain.Enabled = true;
+                panelMain.Visible = true;
+                aboutMainPanel.Enabled = false;
+                aboutMainPanel.Hide();
+            }
+        }
+        #endregion
+
+        //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+        #region manipulowanie-aplikacją
         // Chwytanie i przenoszenie aplikacji
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -493,34 +565,6 @@ namespace numerical_methods_Newton
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-
-        private void iconPictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void iconButtonInfo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void iconButtonInfo_Click_1(object sender, EventArgs e)
-        {
-
-            if (panelMain.Enabled)
-            {
-                panelMain.Enabled = false;
-                panelMain.Visible = false;
-                aboutMainPanel.Enabled = true;
-                aboutMainPanel.Show();   
-            }
-            else if (!panelMain.Enabled)
-            {
-                panelMain.Enabled = true;
-                panelMain.Visible = true;
-                aboutMainPanel.Enabled = false;
-                aboutMainPanel.Hide();
-            }
-        }
+        #endregion
     }
 }
